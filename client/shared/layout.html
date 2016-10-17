@@ -1,5 +1,9 @@
 <template name="layout">
-  {{> Template.dynamic template=header}}
+{{> Template.dynamic template=header}}
+<div class="container">
+  <br><br>
   {{> Template.dynamic template=main}}
-  {{> Template.dynamic template=footer}}
+    <hr>
+    {{> Template.dynamic template=footer}}
+</div>
 </template>
