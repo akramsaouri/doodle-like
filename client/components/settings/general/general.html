@@ -1,0 +1,29 @@
+<template name="general">
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text"  class="form-control" id="title" placeholder="title">
+    </div>
+    <div class="form-group">
+      <label for="location">Location (optional)</label>
+      <input type="text" class="form-control"  id="location" placeholder="location">
+    </div>
+    <div class="form-group">
+      <label for="description">Description (optional)</label>
+      <textarea id="description" rows="4" cols="15" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="name">Your name</label>
+      <input type="text"  class="form-control" id="name" placeholder="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Your email address</label>
+      <input type="email"  class="form-control" id="email" placeholder="email">
+      <p class="help-block">You will receive the link to administer your poll at the address. This will NOT create any Doodle account.</p>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-default btn-sm" disabled>Back</button>
+      <button type="button" class="btn btn-primary btn-sm">Next</button>
+    </div>
+  </form>
+</template>
