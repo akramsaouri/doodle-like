@@ -1,0 +1,45 @@
+<template name="time">
+<div class="row">
+    <div class="col-lg-4">
+        <form>
+            <div class="form-group">
+                <label for="date">Select event day</label>
+                <!-- TODO: make this a small calendar -->
+                <input type="date" id="date" class="form-control">
+            </div>
+        </form>
+        <br>
+        <h5 class="text-muted">02/12/1995</h5>
+    </div>
+    <div class="col-lg-8">
+        <h4>Time proposals</h4>
+        <form>
+            <div class="form-group row">
+                <div class="col-lg-4">
+                    <label for="from">From: </label>
+                    <input type="text" class="form-control input-sm" id="from" placeholder="8:00 AM">
+                </div>
+                <div class="col-lg-4">
+                    <label for="to">To: </label>
+                    <input type="text" class="form-control input-sm" id="to" placeholder="2:00 PM">
+                </div>
+            </div>
+            <div class="row col-lg-12 form-group">
+                <label for="ranges">Or if prefer ranges</label>
+                <!-- TODO:  make this selectable -->
+                <select multiple class="form-control" id="ranges">
+        <option value="">8:00 => 9:00</option>
+        <option value="">9:00 => 10:00</option>
+        <option value="">10:00 => 11:00</option>
+        <option value="">11:00 => 12:00</option>
+        </select>
+            </div>
+            <br><br>
+            <div class="form-group pull-right">
+                <button type="button" class="btn btn-default btn-sm">Back</button>
+                <button type="button" class="btn btn-primary btn-sm">Next</button>
+            </div>
+        </form>
+    </div>
+</div>
+</template>
