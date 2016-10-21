@@ -1,9 +1,10 @@
 <template name="settings">
   <br><br><br>
   <ol class="breadcrumb">
-    <li class="active">General</li>
-    <li><a href="#">Time proposals</a></li>
-    <li><a href="#">Invite</a></li>
+    <!-- TODO: Switch active state here -->
+    <li class="active" ><a href="/settings">General</a></li>
+    <li><a href="/settings/time">Time proposals</a></li>
+    <li><a href="/settings/invite">Invite</a></li>
   </ol>
-  {{> invite}}
+  {{> Template.dynamic template=step}}
 </template>
