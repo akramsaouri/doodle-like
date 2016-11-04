@@ -6,26 +6,35 @@ import {
     validateFields
 } from '/lib/helpers';
 
+import {
+    Template
+} from 'meteor/templating';
+
+Template.invite.helpers({
+    emails() {
+        return Session.get('emails');
+    }
+});
+
 Template.invite.rendered = () => {
     Session.setDefault('emails', []);
 };
 
 Template.invite.events({
     'click #finish' (e) {
-        const email = $('#email').val();
         const message = $('#message').val();
-        // if (Session.get('emails').length === 0){
-        //   sAlert.error('you need to enter at least one participant email');
-        //   return e.preventDefault();
-        // }
-        console.log(Session.get('emails'));
+        const emails = Session.get('emails');
+        if (emails.length === 0) {
+            sAlert.error('you need to enter at least one participant email');
+            return e.preventDefault();
+        }
         Session.set('invite', {
-            email,
+            emails,
             message
         });
-        // console.log(Session.get('general'));
-        // console.log(Session.get('time'));
-        // console.log(Session.get('invite'));
+        console.log(Session.get('general'));
+        console.log(Session.get('time'));
+        console.log(Session.get('invite'));
         alert('done');
         return e.preventDefault();
     },
@@ -39,7 +48,10 @@ Template.invite.events({
             Session.set('emails', [...new Set([...emails])]);
             $('#email').val('');
         }
+    },
+    'click #remove' (e) {
+        const emails = Session.get('emails')
+            .filter(e => e !== String(this));
+        Session.set('emails', [...new Set([...emails])]);
     }
-    // TODO: HERE
-    // TODO: Dynamically add new emails
 });

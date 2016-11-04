@@ -8,9 +8,13 @@
             <label for="email">Insert email addresses</label>
             <input type="text" id="email" class="form-control">
             <br>
-            <button type="button" class="btn btn-primary btn-xs pull-right" id="add">
-              <span class="glyphicon glyphicon-plus-sign"></span> add
-            </button>
+            {{#each emails}}
+            <span class="label label-default">
+              {{.}}
+              <buttton id="remove"><span aria-hidden="true">&times;</span></buttton>
+            </span>
+            <br>
+            {{/each}}
         </div>
     </div>
     <div class="col-lg-6">
