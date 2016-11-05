@@ -6,6 +6,12 @@ import {
     validateFields
 } from '/lib/helpers';
 
+Template.time.helpers({
+    date() {
+        return Session.get('date');
+    }
+});
+
 Template.time.rendered = () => {
     Session.setDefault('date', null);
     $('#my-datepicker').datepicker();
