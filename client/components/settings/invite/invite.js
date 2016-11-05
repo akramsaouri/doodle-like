@@ -6,10 +6,6 @@ import {
     validateFields
 } from '/lib/helpers';
 
-import {
-    Template
-} from 'meteor/templating';
-
 Template.invite.helpers({
     emails() {
         return Session.get('emails');

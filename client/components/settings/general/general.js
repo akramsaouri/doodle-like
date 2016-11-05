@@ -6,6 +6,22 @@ import {
     validateFields
 } from '/lib/helpers';
 
+Template.general.rendered = () => {
+    if (!Session.get('general')) Session.setDefault('general', {});
+    const {
+        title,
+        email,
+        name,
+        description,
+        location
+    } = Session.get('general');
+    $('#title').val(title);
+    $('#email').val(email);
+    $('#name').val(name);
+    $('#description').val(description);
+    $('#location').val(location);
+};
+
 Template.general.events({
     'click #next' (e) {
         const title = $('#title').val();

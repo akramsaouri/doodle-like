@@ -13,11 +13,21 @@ Template.time.helpers({
 });
 
 Template.time.rendered = () => {
-    Session.setDefault('date', null);
     $('#my-datepicker').datepicker();
     $(".select2-element").select2();
-};
 
+    if (!Session.get('time')) Session.setDefault('time', {});
+    const {
+        date,
+        from,
+        to,
+        ranges
+    } = Session.get('time');
+    $('#my-datepicker').datepicker("update", date);
+    $('#from').val(from);
+    $('#to').val(to);
+    $('#ranges').val(ranges).trigger("change");
+};
 
 Template.time.events({
     'changeDate #my-datepicker' (e) {
