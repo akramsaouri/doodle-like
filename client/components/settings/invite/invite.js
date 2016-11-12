@@ -6,6 +6,10 @@ import {
     validateFields
 } from '/lib/helpers';
 
+import {
+    Polls
+} from '/lib/collection';
+
 Template.invite.helpers({
     emails() {
         return Session.get('emails');
@@ -28,9 +32,12 @@ Template.invite.events({
             emails,
             message
         });
-        console.log(Session.get('general'));
-        console.log(Session.get('time'));
-        console.log(Session.get('invite'));
+
+        // insert the poll into the database
+        const poll = Object.assign(Session.get('general'), Session.get('time'), Session.get('invite'));
+        console.log(poll);
+        Polls.insert(poll);
+
         alert('done');
         return e.preventDefault();
     },
