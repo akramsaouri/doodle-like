@@ -35,10 +35,9 @@ Template.invite.events({
 
         // insert the poll into the database
         const poll = Object.assign(Session.get('general'), Session.get('time'), Session.get('invite'));
-        console.log(poll);
-        Polls.insert(poll);
-
-        alert('done');
+        poll.adminToken = "admin";
+        poll.participantToken = "participant";
+        FlowRouter.go(`/poll/${poll.adminToken}`);
         return e.preventDefault();
     },
     'keydown #email' (e) {
